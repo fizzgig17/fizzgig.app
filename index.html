@@ -2,9 +2,14 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fizzgig Apps</title><meta name="description" content="Fizzgig Apps publishes hCRI.io and hCRI Companion, Belay Buddy and EDC Roulette.">
 <meta name="color-scheme" content="light dark">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <style>
 :root{--bg:#f6f7f8;--card:#fff;--text:#16191d;--muted:#5d6670;--line:#dfe3e7;--accent:#0e7a80}
-@media (prefers-color-scheme:dark){:root{--bg:#121419;--card:#1b1f26;--text:#eef1f4;--muted:#a3adb8;--line:#2b313a;--accent:#4fc3c9}}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#121419;--card:#1b1f26;--text:#eef1f4;--muted:#a3adb8;--line:#2b313a;--accent:#4fc3c9}}
+:root[data-theme=dark]{--bg:#121419;--card:#1b1f26;--text:#eef1f4;--muted:#a3adb8;--line:#2b313a;--accent:#4fc3c9}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.theme{background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}.theme:hover{border-color:var(--accent)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 main{max-width:720px;margin:0 auto;padding:32px 16px 64px}
 header a.brand{font-weight:700;font-size:20px;color:var(--text);text-decoration:none}
@@ -16,7 +21,7 @@ p{margin:8px 0}.muted{color:var(--muted)}a{color:var(--accent)}
 footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
 </style>
 </head><body><main>
-<header><a class="brand" href="/">Fizzgig Apps</a></header>
+<header><a class="brand" href="/">Fizzgig Apps</a><button class="theme" id="theme" type="button" aria-label="Switch between light and dark mode"></button></header>
 <h1>Fizzgig Apps</h1>
 <p class="muted">Small, focused apps from one independent developer.</p>
 <div class="card"><h2>hCRI.io</h2>
@@ -38,4 +43,11 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 <h2>Contact</h2>
 <p>Questions or requests: <a href="mailto:fizzgig@hcri.io">fizzgig@hcri.io</a> (hCRI.io and hCRI Companion), <a href="mailto:support@belaybuddy.app">support@belaybuddy.app</a> (Belay Buddy) or <a href="mailto:support@edcroulette.app">support@edcroulette.app</a> (EDC Roulette).</p>
 <footer><a href="/">Home</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><span>© Fizzgig Apps</span></footer>
+<script>
+(function(){var r=document.documentElement,b=document.getElementById("theme"),m=matchMedia("(prefers-color-scheme:dark)");
+function cur(){return r.getAttribute("data-theme")||(m.matches?"dark":"light")}
+function paint(){b.textContent=cur()==="dark"?"\u2600 Light":"\u263E Dark"}
+b.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}paint()});
+m.addEventListener&&m.addEventListener("change",paint);paint()})();
+</script>
 </main></body></html>
