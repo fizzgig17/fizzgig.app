@@ -9,7 +9,7 @@
 :root[data-theme=dark]{--bg:#121419;--card:#1b1f26;--text:#eef1f4;--muted:#a3adb8;--line:#2b313a;--accent:#4fc3c9}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.theme{background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}.theme:hover{border-color:var(--accent)}
+.theme{background:none;border:1px solid var(--line);border-radius:6px;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;line-height:1;padding:0;cursor:pointer;color:var(--text)}.theme:hover{border-color:var(--accent)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 main{max-width:720px;margin:0 auto;padding:32px 16px 64px}
 header a.brand{font-weight:700;font-size:20px;color:var(--text);text-decoration:none}
@@ -20,7 +20,7 @@ p{margin:8px 0}.muted{color:var(--muted)}a{color:var(--accent)}
 footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
 </style>
 </head><body><main>
-<header><a class="brand" href="/">Fizzgig Apps</a><button class="theme" id="theme" type="button" aria-label="Switch between light and dark mode"></button></header>
+<header><a class="brand" href="/">Fizzgig Apps</a><button class="theme" id="theme" type="button" title="Toggle light/dark" aria-label="Toggle light/dark theme"></button></header>
 <h1>Privacy policy</h1>
 <p class="muted">Updated October 24, 2026</p>
 <p>Fizzgig Apps publishes Belay Buddy and EDC Roulette. This page covers what is shared between them: the sign-in and the account. Each app also has its own privacy policy, which describes what that app does with your information and is the one that applies to the app's own features:</p>
@@ -44,7 +44,7 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 <script>
 (function(){var r=document.documentElement,b=document.getElementById("theme"),m=matchMedia("(prefers-color-scheme:dark)");
 function cur(){return r.getAttribute("data-theme")||(m.matches?"dark":"light")}
-function paint(){b.textContent=cur()==="dark"?"\u2600 Light":"\u263E Dark"}
+function paint(){b.textContent=cur()==="dark"?"\u2600":"\uD83C\uDF19"}
 b.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}paint()});
 m.addEventListener&&m.addEventListener("change",paint);paint()})();
 </script>
