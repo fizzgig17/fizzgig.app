@@ -19,11 +19,16 @@ p{margin:8px 0}.muted{color:var(--muted)}a{color:var(--accent)}
 .card h2{margin:0 0 4px}.links{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
 .badges{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:12px}.badges a{display:inline-flex}.badges img{display:block}.apple{height:40px;width:auto}.play{height:60px;width:auto;margin:-10px -6px}
 footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
+.banner{position:relative;margin:0 0 20px;padding:44px 24px 40px;border-radius:16px;color:#fff;background:linear-gradient(135deg,#0b5e63 0%,#0e7a80 55%,#1aa1a7 100%);box-shadow:0 6px 24px rgba(14,122,128,.25)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .banner{background:linear-gradient(135deg,#0c2f33 0%,#12565b 55%,#1b7f85 100%);box-shadow:none}}
+:root[data-theme=dark] .banner{background:linear-gradient(135deg,#0c2f33 0%,#12565b 55%,#1b7f85 100%);box-shadow:none}
+.banner h1{margin:0 0 6px;font-size:34px}.banner p{margin:0;font-size:17px;color:rgba(255,255,255,.88)}
+.banner .theme{position:absolute;top:14px;right:14px;color:#fff;border-color:rgba(255,255,255,.45)}.banner .theme:hover{border-color:#fff}
 </style>
 </head><body><main>
-<header><a class="brand" href="/">Fizzgig Apps</a><button class="theme" id="theme" type="button" title="Toggle light/dark" aria-label="Toggle light/dark theme"></button></header>
+<section class="banner"><button class="theme" id="theme" type="button" title="Toggle light/dark" aria-label="Toggle light/dark theme"></button>
 <h1>Fizzgig Apps</h1>
-<p class="muted">Small, focused apps from one independent developer.</p>
+<p>Small, focused apps from one independent developer.</p></section>
 <div class="card"><h2>hCRI.io</h2>
 <p>Spectral power distribution analysis for lighting and LED enthusiasts: TM-30, CRI and CCT metrics from your spectrometer readings, with reports you can keep and share.</p>
 <div class="links"><a href="https://hcri.io">hcri.io</a></div></div>
